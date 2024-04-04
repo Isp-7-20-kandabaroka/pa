@@ -414,7 +414,7 @@ async def start_support_session(callback_query: types.CallbackQuery, state: FSMC
         await state.update_data(user_id=callback_query.from_user.id)  # Сохраняем ID пользователя для последующего ответа
         await bot.send_message(
         callback_query.from_user.id,
-        "Пожалуйста, напишите ваш вопрос, и наш сотрудник свяжется с вами!\n\nи пот передумали и хотите прекратить действие,\nобязательно нажмите кнопку отменить, прежде чем переходить к другим командам",
+        "Пожалуйста, напишите ваш вопрос, и наш сотрудник свяжется с вами!\n\nЕсли вы передумали и хотите прекратить действие,\n\nОбязательно нажмите кнопку отменить, прежде чем переходить к другим командам",
         reply_markup=generate_cancel_button()
     )
 
@@ -1061,7 +1061,7 @@ async def send_ads_batch(user_id, state: FSMContext):
         await bot.send_message(user_id, "Показать следующие объявления?", reply_markup=markup)
         await bot.send_message(user_id, "Нажмите назад чтобы вернуться в меню", reply_markup=generate_clear_chat_button())
     else:
-        await bot.send_message(user_id, "Вы просмотрели все доступные объявления в этом городе.\n\nЕсли вы передумали и хотите прекратить действие,\nобязательно нажмите кнопку назад, прежде чем переходить к другим командам", reply_markup=generate_clear_chat_button())
+        await bot.send_message(user_id, "Вы просмотрели все доступные объявления в этом городе.\n\nЕсли вы передумали и хотите прекратить действие,\nОбязательно нажмите кнопку назад, прежде чем переходить к другим командам", reply_markup=generate_clear_chat_button())
 
 @dp.callback_query_handler(lambda c: c.data == 'next_ad', state='*')
 async def next_ad(callback_query: types.CallbackQuery, state: FSMContext):
