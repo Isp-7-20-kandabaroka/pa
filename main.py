@@ -968,7 +968,7 @@ async def done_add(callback_query: types.CallbackQuery, state: FSMContext):
                 await bot.send_message(callback_query.from_user.id, message_text)
 
             await bot.send_message(callback_query.from_user.id,
-                                   f"Срок размещения объявления 14 дней, удачи в поисках!\n\nобязательно нажмите кнопку назад, прежде чем переходить к другим командам",
+                                   f"Срок размещения объявления 14 дней, удачи в поисках!\n\nОбязательно нажмите кнопку назад, прежде чем переходить к другим командам",
                                    reply_markup=generate_clear_chat_button())
 
         except sqlite3.DatabaseError as e:
